@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Cajas</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css"href="css/style.css">
+</head>
+<body>
+<header class="header">
+  <nav>
+    <div>
+      <ul>
+        
+        <li><a href="Votos.html">Votos</a></li>
+        <li><a href="Factorial.html">Factorial</a></li>
+        <li><a href="Suma.html">Suma</a></li>
+        <li><a href="Calculadora.html">Calculadora</a></li>
+        <li><a href="index.html">Inicio</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+<body>
+<center>
+<p>Click para ingresar el numero de cajas</p>
+
+<button onclick="crear()">Comenzar</button>
+
+
+<style type="text/css">
+	p{
+		font-size: 50px;
+	}
+	button{
+		width: 20%;
+		height: auto;
+		border-radius: .1em;
+		background-color: #002592;
+		color: white;
+		cursor: pointer;
+	}
+	button:hover{
+background-color: #AEC2FF;
+color: #002592;
+	}
+</style>
+<script>
+function crear() {
+	var btn;
+	var i=0;
+  var opc = prompt("Por favor ingresa un numero", );
+  if (opc>8) {
+    while(i<opc){
+  		var hor = document.createElement("article");
+  document.body.appendChild(hor);
+  hor.innerHTML = "Cajas";
+  
+
+  i++;
+
+  	}
+  	var j=0;
+  do{
+  	var article = document.getElementsByTagName("article")[j];
+  var att = document.createAttribute("id");
+  att.value = "horizontal";
+ article.setAttributeNode(att);
+  
+ j++;
+}while(j<opc);
+
+  }else{
+  	while(i<opc){
+  		var ver = document.createElement("article");
+  document.body.appendChild(ver);
+  ver.innerHTML = "Cajas";
+  i++;
+  	}
+  	var j=0;
+  do{
+  	var article = document.getElementsByTagName("article")[j];
+  var att = document.createAttribute("id");
+  att.value = "vertical";
+ article.setAttributeNode(att);
+  
+ j++;
+}while(j<opc);
+var s=0;
+do{
+	var para = document.createElement("P");
+  para.innerHTML = "This is a paragraph.";
+  document.getElementsById("horizontal").appendChild(para);
+  s++;
+}while(s<opc);
+
+  }
+
+  
+  
+}
+</script>
+
+​
+   
+​
+
+<style type="text/css">
+
+   #horizontal
+   {
+   	background-color: #f3c623;
+		color: #10375c;
+      /* basic styling */
+      width: auto;
+      height: 200px;
+      border: 1px solid #555;
+      font: 14px Arial;
+
+      font-size: 40px;
+    display: inline-flex;
+    margin-left: 1%;
+    text-align: center;
+   
+   }
+
+   /* colors */
+   #vertical{
+   	background-color: #10375c;
+		color: #f3c623;
+      /* basic styling */
+      width:autoS;
+      height: 200px;
+      border: 1px solid #555;
+      font: 14px Arial;
+      font-size: 40px;
+      
+    display:block;
+    margin-bottom: 1%;
+    margin-left: 1%;
+    text-align: center;
+   }
+
+   
+   </style>
+ 
+ </center>
+</body>
+</html>

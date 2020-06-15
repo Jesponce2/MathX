@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Votos</title>
+<meta charset="utf-8">
+  <link rel="stylesheet" type="text/css"href="css/style.css">
+</head>
+<body>
+<header class="header">
+  <nav>
+    <div>
+      <ul>
+        <li><a href="Cajas.html">Cajas</a></li>
+        
+        <li><a href="Factorial.html">Factorial</a></li>
+        <li><a href="Suma.html">Suma</a></li>
+        <li><a href="Calculadora.html">Calculadora</a></li>
+        <li><a href="index.html">Inicio</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+	<style type="text/css">
+		body{
+			text-align: center;
+     
+		}
+    span{
+      font-size: 28px;
+      color: white;
+    }
+    form{
+      background-color: rgba(0,0,0,0.3);
+      margin-top: 5%;
+      width: 30%;
+      border-radius: 2em;
+      padding: 2%;
+    }
+    select{
+      border-radius: .1em;
+      border: none;
+    }
+    input[type="text"] {
+      background-color: transparent;
+      border-bottom-color: #18181B;
+      border-top-color: transparent;
+       border-left-color: transparent;
+        border-right-color: transparent;
+        width: 70%;
+        text-align: center;
+        cursor: pointer;
+    }
+    input[type="text"]:hover {
+      background-color: transparent;
+      border-bottom-color: #18181B;
+      border-top-color: transparent;
+       border-left-color: transparent;
+        border-right-color: transparent;
+        width: 90%;
+        border-bottom-width: 90%;
+        text-align: center;
+       
+
+    }
+    input[type="submit"]{
+      width: 30%;
+      height: 20%;
+
+      border-radius: 1em;
+      cursor: pointer;
+
+    }
+	</style>
+  <center>
+
+
+<form name="frmDatos">
+  <span>Sitio de votaciones</span><br><br>
+
+
+	<input type="text" name="nombre" placeholder="Ingrese su nombre"><br><br>
+	<input type="text" name="ciudad" placeholder="Ingrese su ciudad"><br><br>
+	<select name="secciones" id="secciones"> 
+		<option>Seleccione una opcion...</option>
+		<option value="Centro">Centro</option>
+		<option value="Norte">Norte</option>
+		<option value="Sur">Sur</option>
+		
+	</select><br><br>
+	<input type="text" name="cp" placeholder="Ingrese su codigo postal"><br><br>
+	<label>Ingresa el numero del emprendedor que crees es el mejor:</label><br><br>
+	<label>1.Elon Musk <br>2.Mark Zuckerberg <br>3.Jeff Bezzos</label><br><br>
+	<input type="text" name="emprendedor" placeholder="Ingrese el numero del emprendedor"><br><br>
+<input type="submit" name="emite" value="Emitir voto" onclick="emitir(this.value);">
+</form>
+
+
+
+</center>
+
+<script>
+function emitir() {
+	var nombre=document.frmDatos.nombre.value;
+	var ciudad=document.frmDatos.ciudad.value;
+	var seccion=document.getElementById("secciones").value;
+	var cp=document.frmDatos.cp.value;
+  var txt;
+  var opcion=parseInt(document.frmDatos.emprendedor.value);
+  switch(opcion){
+  	case 1:
+  	   		 if (confirm("¿Tus datos son correctos? \n"+"Nombre: "+nombre+"\n"+"Ciudad: "+ciudad+"\n"+"Seccion: "+seccion+"\n"+"Emprendedor: Elon Musk")) {
+    alert("Los datos de tu voto fueron registrados correctamente");
+  } else {
+   alert("Vuelve a ingresar tus datos");
+  }
+  break;
+  case 2:
+  	   		 if (confirm("¿Tus datos son correctos? \n"+"Nombre: "+nombre+"\n"+"Ciudad: "+ciudad+"\n"+"Seccion: "+seccion+"\n"+"Emprendedor: Mark Zuckerberg")) {
+    alert("Los datos de tu voto fueron registrados correctamente");
+  } else {
+   alert("Vuelve a ingresar tus datos");
+  }
+  break;
+  case 3:
+  	   		 if (confirm("¿Tus datos son correctos? \n"+"Nombre: "+nombre+"\n"+"Ciudad: "+ciudad+"\n"+"Seccion: "+seccion+"\n"+"Emprendedor: Jeff Bezzos")) {
+    alert("Los datos de tu voto fueron registrados correctamente");
+  } else {
+   alert("Vuelve a ingresar tus datos");
+  }
+  break;
+  default:
+  alert("Ingresa una opcion valida");
+  }
+ 
+  
+}
+</script>
+</body>
+</html>

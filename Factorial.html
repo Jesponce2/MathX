@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Factorial</title>
+<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css"href="css/style.css">
+</head>
+<body>
+<header class="header">
+	<nav>
+		<div>
+			<ul>
+				<li><a href="Cajas.html">Cajas</a></li>
+				<li><a href="Votos.html">Votos</a></li>
+				
+				<li><a href="Suma.html">Suma</a></li>
+				<li><a href="Calculadora.html">Calculadora</a></li>
+				<li><a href="index.html">Inicio</a></li>
+			</ul>
+		</div>
+	</nav>
+</header>
+	
+<form name="frmFact" >
+	<h1>Factorial</h1>
+	<label>Resultados</label><br>
+	<H1 id="message"></H1><br>
+
+<input type="text" name="numero" placeholder="Ingresa un numero">
+<br><br>
+	<input type="button" onclick="calcular(this.value)" value="Calcular">
+
+</form>
+<script type="text/javascript">
+function calcular(){
+var n=parseInt(frmFact.numero.value);
+var i=1;
+
+var res=1;
+while(i<=n){
+res=res*i;
+i++;
+
+}
+document.getElementById("message").innerHTML=res;
+}
+	
+</script>
+<style type="text/css">
+	body{
+		text-align: center;
+	}
+	form{
+		background-color: rgba(0,0,0,0.3);
+		width: 30%;
+		margin-left: 35%;
+		border-radius: .2em;
+		height: 50%;
+	}
+	input[type="button"]{
+		margin-top-top: 5%;
+		border-radius: .2em;
+		margin-bottom: 3%;
+		cursor: pointer;
+	}
+	input[type="text"]{
+		border-top:  none;
+		border-left: none;
+		border-right: none;
+		background-color:  transparent;
+		border-bottom-color: #18181B;
+		text-align: center;
+
+	}
+	input[type="text"]:hover{
+		border-top:  none;
+		border-left: none;
+		border-right: none;
+		background-color:  transparent;
+		border-bottom-color: #18181B;
+		text-align: center;
+		font-size: 16px;
+		width: 80%;
+		
+	}
+</style>
+</center>
+</body>
+</html>

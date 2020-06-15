@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+<title>Calculadora basica</title>
+
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css"href="css/style.css">
+</head>
+<body>
+<header class="header">
+	<nav>
+		<div>
+			<ul>
+				<li><a href="Cajas.html">Cajas</a></li>
+				<li><a href="Votos.html">Votos</a></li>
+				<li><a href="Factorial.html">Factorial</a></li>
+				<li><a href="Suma.html">Suma</a></li>
+				<li><a href="index.html">Inicio</a></li>
+			</ul>
+		</div>
+	</nav>
+</header>
+<center>
+
+<form name="f1"><br>
+	<h1>Calculadora Basica</h1>
+<input type="text" name="txtcaja1">
+<br>
+<input type="text" name="txtcaja2" value="0">
+<br>
+
+
+
+<br>
+<input type="button" onclick="escribir(this.value)" value="7">
+<input type="button" onclick="escribir(this.value)" value="8">
+<input type="button" onclick="escribir(this.value)" value="9">
+<input type="button" class="arit" onClick="arit('*')" value="×">
+<br>
+<input type="button" onclick="escribir(this.value)" value="4">
+<input type="button" onclick="escribir(this.value)" value="5">
+<input type="button" onclick="escribir(this.value)" value="6">
+<input type="button" class="arit" onClick="arit('-')" value="-">
+<br>
+<input type="button" onclick="escribir(this.value)" value="1">
+<input type="button" onclick="escribir(this.value)" value="2">
+<input type="button" onclick="escribir(this.value)" value="3">
+<input type="button" class="arit" onClick="arit('+')" value="+">
+<br>
+<input type="button" class="clear" onClick="document.f1.txtcaja2.value='0'" value="CE">
+<input type="button" onclick="escribir(this.value)" value="0">
+
+<input type="button" class="igual" onClick="calcular()" value="=">
+
+
+ 
+<input type="button" class="arit" onClick="arit('/')" value="÷">
+<br>
+</form>
+</center>
+<script type="text/javascript">
+	var borrar = false;
+	
+   function escribir(n){
+		var caja2 = document.f1.txtcaja2.value;
+		if (borrar) {
+			//alert("se borro");
+			document.f1.txtcaja2.value="";
+			borrar = false;
+			document.f1.txtcaja2.value = n;
+		}
+		else if (caja2 == "0" && n != "."){
+			cajao = caja2.replace("0", "")
+			document.f1.txtcaja2.value = cajao + n;
+		}
+		else{
+			document.f1.txtcaja2.value = caja2 + n;
+		}
+	}
+	
+	function arit(o){
+		var caja1 = document.f1.txtcaja1.value;
+		var caja2 = document.f1.txtcaja2.value;
+		var unum = caja1.substring(caja1.length-1);
+		calcular()
+		if (unum == "+" || unum == "-" || unum=="*" || unum=="/") {
+			unum = unum.replace(unum,o);
+			var res = caja1.substring(0,caja1.length-1);
+			document.f1.txtcaja1.value = res+unum;
+		}
+		if (caja1 == "" && caja2 != ""){
+			document.f1.txtcaja1.value = caja2 + o;
+		}
+		else{
+			document.f1.txtcaja1.value = caja1 + caja2 + o;
+ 		}
+ 		borrar = true;
+	}
+	function calcular(){
+		var caja1 = document.f1.txtcaja1.value;
+		var caja2 = document.f1.txtcaja2.value;
+		document.f1.txtcaja2.value = eval(caja1 + caja2);
+		document.f1.txtcaja1.value = "";
+		borrar = true;
+		blocdel = true;
+	}
+	
+</script>
+<style type="text/css">
+	form{
+		background-color: rgba(0,0,0,0.3);
+		margin-top: 5%;
+		width: 20%;
+		padding-bottom: 4%;
+		border-radius: 1em;
+	}
+	input[type="button"]{
+		width: 15%;
+		height:15%;
+	}
+	input[type="text"]{
+		background-color: transparent;
+		color: white;
+		width: 70%;
+	}
+</style>
+</body>
+</html>

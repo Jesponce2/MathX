@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Suma</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css"href="css/style.css">
+</head>
+<body>
+<header class="header">
+	<nav>
+		<div>
+			<ul>
+				<li><a href="Cajas.html">Cajas</a></li>
+				<li><a href="Votos.html">Votos</a></li>
+				<li><a href="Factorial.html">Factorial</a></li>
+				
+				<li><a href="Calculadora.html">Calculadora</a></li>
+				<li><a href="index.html">Inicio</a></li>
+			</ul>
+		</div>
+	</nav>
+</header>
+<section>
+<h1>Suma de numeros</h1>
+<h4 id="res"></h4>
+<p>Click para comenzar con las sumas</p>
+
+<button onclick="myFunction()">Comenzar</button>
+
+<p id="demo"></p>
+</section>
+<script>
+function myFunction() {
+  var suma=0;
+  
+
+  do{
+  	var num = parseInt(prompt("Por favor ingresa un nuevo numero", ));
+  	suma=suma+num;
+  	
+  }while(num>0);
+var res=suma-num;
+  document.getElementById("res").innerHTML =
+    "El acumulado de la suma es:"+res ;
+}
+</script>
+<style type="text/css">
+	body{
+		text-align: center;
+
+	}
+	section{
+		background-color: rgba(0,0,0,0.3);
+		width: 30%;
+		border-radius: 1em;
+		margin-left: 35%;
+		margin-top: 5%;
+	}
+</style>
+</body>
+</html>
