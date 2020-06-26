@@ -1,56 +1,423 @@
-​<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <style>
-
-   .flex
-   {
-      /* basic styling */
-      width: 350px;
-      height: 200px;
-      border: 1px solid #555;
-      font: 14px Arial;
-
-      /* flexbox setup */
-      display: -webkit-flex;
-      -webkit-flex-direction: row;
-
-      display: flex;
-      flex-direction: row;
-   }
-
-   .flex > div
-   {
-      -webkit-flex: 1 1 auto;
-      flex: 1 1 auto;
-
-      width: 30px; /* To make the transition work nicely.  (Transitions to/from
-                      "width:auto" are buggy in Gecko and Webkit, at least.
-                      See http://bugzil.la/731886 for more info.) */
-
-      -webkit-transition: width 0.7s ease-out;
-      transition: width 0.7s ease-out;
-   }
-
-   /* colors */
-   .flex > div:nth-child(1){ background : #009246; }
-   .flex > div:nth-child(2){ background : #F1F2F1; }
-   .flex > div:nth-child(3){ background : #CE2B37; }
-
-   .flex > div:hover
-   {
-        width: 200px;
-   }
-   
-   </style>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tarjetas</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
     
- </head>
- <body>
-  <p>Flexbox nuovo</p>
-  <div class="flex">
-    <div>uno</div>
-    <div>due</div>
-    <div>tre</div>
+</head>
+<body>
+    <style type="text/css">
+        body{
+            margin:10%;
+        }
+        h1{
+            text-align: center;
+        }
+        h4{
+            font-size: 27px;
+        }
+        #tema{
+            padding-left: 10%;
+        }
+        #tema form{
+            padding-left: 1%;
+
+        }
+        #tema input{
+            margin-left: 10%;
+
+        }
+        #imagen{
+            padding-left: 10%;
+
+        }
+        #imagen form{
+            padding-left: 1%;
+
+        }
+        #imagen input{
+            margin-left: 10%;
+
+        }
+         img{
+            width: 190px;
+            border-style: solid;
+            border-color: #DB4545;
+        }
+        #img3{
+            height: 160px;
+        }
+        #sValentin{
+            display: none;
+
+        }
+        #Cumpleaños{
+            display: none;
+        }
+        #Motivacion{
+            display: none;
+        }
+        #contenido{
+            padding-left: 10%;
+        }
+        #contenido{
+            width: 90%;
+        }
+        input[type="text"]{
+
+            width: 30%;
+            height: 50px;
+            border: none;
+  border-bottom: 2px solid red; 
+  background-color: rgba(0,0,0,0.1);
+  padding-left: 1%;
+        }
+         textarea{
+          padding-top: 5%;
+             width: 95%;
+  height: 150px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  resize: none;
+            
+        }
+        #colores{
+            padding-left: 10%;
+
+        }
+        #fon{
+            height: 100px;
+            width: 100px;
+        }
+        #colores input{
+            margin-left: 10%;
+
+        }
+        .llenado{
+            display: ;
+        }
+        #final{
+            display: none;
+            height: auto;
+            width: 60%;
+            position: absolute;
+        }
+        #txtMensaje{
+            width: 90%;
+          
+            text-align: justify;
+            margin: 5%;
+        }
+        .final p{
+            
+            margin-left: 5%;
+
+        }
+        
+        #tarje{
+            margin: 5%;
+            color: white;
+            background-color: white;
+            text-align: center;
+            border-style: solid;
+        }
+        #fecha{
+            float: left;
+            margin-left: 5%;
+        }
+        #txtAutor{
+            float: right;
+            margin-right: 2%;
+        }
+        #imagen{
+          width: 70%;
+          height: auto;
+          margin-left: -10%;
+          border: none;
+        }
+       #parraMensaje{
+        width: 80%;
+        margin-left: 10%;
+       }
+       #txtTitulo{
+        font-size: 55px;
+       }
+       #txtSubtitulo{
+        font-size: 20px;
+       }
+    </style>
+    <section id="llenado">
+<h1>Crea tu tarjeta de felicitación</h1><br>
+
+
+
+    <h4><i class="fa fa-heart" aria-hidden="true"></i> Elija un tema</h4><br>
+    <form name="frmDatos">
+  <input type="radio" name="tema" value="SanValentin" onclick="toggle(this)"> San Valentin
+  <input type="radio" name="tema" value="Cumpleaños" onclick="toggle(this)"> Feliz Cumpleaños
+  <input type="radio" name="tema" value="Motivacion" onclick="toggle(this)"> Motivación
+    
+
+
+
+    <h4><i class="fa fa-camera" aria-hidden="true"></i> Elija una imagen</h4><br>
+    <div id="primeras">
+        <input type="radio" name="tema" value="img/amor1.jpg" > <img src="img/amor1.jpg">
+<input type="radio" name="tema" value="San Valentin"> <img src="img/cumple1.jpg">
+<input type="radio" name="tema" value="Motivacion" > <img id="img3" src="img/motivacion3.jpg">
+    </div>
+    <div id="sValentin">
+    
+    <input type="radio" name="tema" value="img/amor1.jpg" onchange="document.getElementById('imagen').src= this.value"> <img src="img/amor1.jpg">
+  <input type="radio" name="tema" value="img/amor2.jpg" onchange="document.getElementById('imagen').src= this.value"> <img src="img/amor2.jpg">
+  <input type="radio" name="tema" value="img/amor3.jpg" onchange="document.getElementById('imagen').src= this.value"> <img id="img3" src="img/amor3.jpg">
+
+</div>
+
+<div id="Cumpleaños">
+    
+    <input type="radio" name="tema" value="img/cumple1.jpg" onchange="document.getElementById('imagen').src= this.value"> <img src="img/cumple1.jpg">
+  <input type="radio" name="tema" value="img/cumple2.jpg" onchange="document.getElementById('imagen').src= this.value"> <img src="img/cumple2.jpg">
+  <input type="radio" name="tema" value="img/cumple3.jpg" onchange="document.getElementById('imagen').src= this.value"> <img id="img3" src="img/cumple3.jpg">
+
+</div>
+
+<div id="Motivacion">
+    
+    <input type="radio" name="tema" value="img/motivacion1.jpg" onchange="document.getElementById('imagen').src= this.value"> <img src="img/motivacion1.jpg">
+  <input type="radio" name="tema" value="img/motivacion2.jpg" onchange="document.getElementById('imagen').src= this.value"> <img src="img/motivacion2.jpg">
+  <input type="radio" name="tema" value="img/motivacion3.jpg" onchange="document.getElementById('imagen').src= this.value"> <img id="img3" src="img/motivacion3.jpg">
+
+</div>
+
+
+    <h4><i class="fa fa-pencil" aria-hidden="true"></i> Contenido</h4>
+    
+    <script type="text/javascript">
+        var titulo;
+        var subtitulo;
+        var autor;
+        var mensaje;
+    </script>
+
+        <input type="text" name="titulo" placeholder="Ingrese el titulo" id="titulo" onchange="document.getElementById('txtTitulo').innerHTML = titulo = this.value">
+        <input type="text" name="subtitulo" placeholder="Ingrese el subtitulo" id="subtitulo" onchange="document.getElementById('txtSubtitulo').innerHTML = subtitulo = this.value">
+        <input type="text" name="autor" placeholder="Ingresa el nombre del autor" id="autor" onchange="document.getElementById('txtAutor').innerHTML = autor = this.value"><br><br>
+       
+    
+<textarea rows="1" cols="50"  type="textarea" name="mensaje" id="mensaje" onchange="document.getElementById('parraMensaje').innerHTML = mensaje = this.value"></textarea>
+
+
+
+    <h4><i class="fa fa-paint-brush" aria-hidden="true"></i> Color</h4>
+
+    <div>
+        
+    <input type="radio" name="tema" value="#588ee2" onchange="document.getElementById('tarje').style.background = this.value">  <img src="img/azul.jpg" id="fon">
+  <input type="radio" name="tema" value="#ea899a" onchange="document.getElementById('tarje').style.background = this.value">  <img src="img/rosa.jpg" id="fon">
+  <input type="radio" name="tema" value="#dd3c43" onchange="document.getElementById('tarje').style.background = this.value"> <img src="img/rojo.jpg" id="fon">
+
+    </div>
+
+    
+ <input id="modal-btn" class="button" onclick=" document.getElementById('final').style.display ='block';" value="Generar">
+</section>
+
+<script src="https://use.fontawesome.com/3938279672.js"></script>
+<script type="text/javascript">
+            function toggle(elemento) {
+              if(elemento.value=="SanValentin") {
+                  document.getElementById("sValentin").style.display = "block";
+                  document.getElementById("Cumpleaños").style.display = "none";
+                  document.getElementById("Motivacion").style.display = "none";
+                  document.getElementById("primeras").style.display = "none";
+               }else{
+                   if(elemento.value=="Cumpleaños"){
+                       document.getElementById("sValentin").style.display = "none";
+                  document.getElementById("Cumpleaños").style.display = "block";
+                  document.getElementById("Motivacion").style.display = "none";
+                  document.getElementById("primeras").style.display = "none";
+                   }else{
+                       if(elemento.value=="Motivacion"){
+                            document.getElementById("sValentin").style.display = "none";
+                  document.getElementById("Cumpleaños").style.display = "none";
+                  document.getElementById("Motivacion").style.display = "block";
+                  document.getElementById("primeras").style.display = "none";
+                        }  
+                    }
+                }
+              }
+    </script>
+    </section>
+
+
+  
+
+  <div id="my-modal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span ><a href=""><i class="fa fa-times" aria-hidden="true" style="color: white;"></i>
+</a></span>
+        <center><h2>Tu tarjeta esta lista</h2></center>
+      </div>
+      <div id="modal-body">
+       <section id="final">
+      
+      <section id="tarje">
+      <h1 id="txtTitulo"></h1>
+      <p id="txtSubtitulo"></p>
+
+      <img src="" id="imagen"><br>
+      <div id="txtMensaje" ><p id="parraMensaje"></p></div><br>
+
+      
+      
+      
+      <p id="fecha"><script>
+var f = new Date();
+document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
+</script></p>
+      <p id="txtAutor"></p><br><br><br>
+    
+    </section>
+    </section>
   </div>
- </body>
+      
+    </div>
+  </div>
+  <style type="text/css">
+      :root {
+  --modal-duration: 1s;
+  --modal-color: #428bca;
+}
+
+body {
+  font-family: Arial ,sans-serif;
+  background: #f4f4f4;
+  
+ 
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.button {
+  background: #428bca;
+  padding: 1em 2em;
+  color: #fff;
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background: #3876ac;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  margin: 10% auto;
+  width: 60%;
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
+  animation-name: modalopen;
+  animation-duration: var(--modal-duration);
+}
+
+.modal-header h2,
+.modal-footer h3 {
+  margin: 0;
+}
+
+.modal-header {
+  background: var(--modal-color);
+  padding: 15px;
+  color: #fff;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.modal-body {
+  padding: 10px 20px;
+  background: #fff;
+}
+
+.modal-footer {
+  background: var(--modal-color);
+  padding: 10px;
+  color: #fff;
+  text-align: center;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.close {
+  color: #ccc;
+  float: right;
+  font-size: 30px;
+  color: #fff;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+@keyframes modalopen {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+  </style>
+  <script type="text/javascript">
+      // Get DOM Elements
+const modal = document.querySelector('#my-modal');
+const modalBtn = document.querySelector('#modal-btn');
+const closeBtn = document.querySelector('.close');
+
+// Events
+modalBtn.addEventListener('click', openModal);
+closeBtn.addEventListener('click', closeModal);
+window.addEventListener('click', outsideClick);
+
+
+function openModal() {
+  modal.style.display = 'block';
+}
+
+
+function closeModal() {
+  modal.style.display = 'none';
+}
+
+
+function outsideClick(e) {
+  if (e.target == modal) {
+    modal.style.display = 'none';
+  }
+}
+
+  </script>
+</body>
 </html>

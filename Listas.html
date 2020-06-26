@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Pruebas</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+	<header class="header">
+	<nav>
+		<div>
+			<ul>
+				<li><a href="Cajas.html">Cajas</a></li>
+				<li><a href="Votos.html">Votos</a></li>
+				<li><a href="Factorial.html">Factorial</a></li>
+				<li><a href="Suma.html">Suma</a></li>
+				<li><a href="Calculadora.html">Calculadora</a></li>
+        <li><a href="Listas.html">Listas</a></li>
+        <li><a href="Bordes.html">Bordes</a></li>
+        <li><a href="Tarjetas.html">Tarjetas de felicitacion</a></li>
+			</ul>
+		</div>
+	</nav>
+</header>
+<section>
+	<ol id="lista">
+		<li>Opcion 1</li>
+		<li>Opcion 2</li>
+		<li>Opcion 3</li>
+	</ol>
+	<button type="button" onclick="agrega();" id="btn">Agregar una opcion</button>
+</section>
+<script type="text/javascript">
+	var i=4;	
+	function agrega() {
+		
+	
+
+		var elemento= document.createElement("li");
+		var texto= document.createTextNode("Opcion "+i);
+		elemento.appendChild(texto);
+		var lista=document.getElementById("lista");
+		lista.appendChild(elemento);
+	
+	i++;
+	}
+</script>
+<style type="text/css">
+	body{
+		background-color: #4982da;
+		color: white;
+		font-family: Arial, sans-serif;
+		
+
+	}
+	button{
+		background-color: white;
+		width: gray;
+		cursor: pointer;
+	}
+	section{
+		margin-top: 15%;
+		margin-left: 40%;
+	}
+</style>
+</body>
+</html>
